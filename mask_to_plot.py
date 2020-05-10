@@ -1,13 +1,5 @@
 import cv2 as cv
 import numpy as np
-# annotation='C:\\Users\\yadur\\Downloads\\Edge\\Mask_to_Polygon\\ADEChallengeData2016\\annotations\\training\\'
-# images='C:\\Users\\yadur\\Downloads\\Edge\\Mask_to_Polygon\\ADEChallengeData2016\\images\\training\\'
-
-# name='ADE_train_00003305'
-
-# img=cv.imread(images+name+'.jpg')
-# mask=cv.imread(annotation+name+'.png')
-
 
 def translate(i,mn,mx,newmn,newmx):
 	return newmn+((i-mn)/(mx-mn))*(newmx-newmn)
@@ -26,7 +18,7 @@ def visualize_mask(mask):
 	cv.waitKey()
 	cv.destroyAllWindows()
 
-def give_contours(img,mask,min_area=100):
+def give_contours(mask,min_area=100):
 	mask=cv.cvtColor(mask,cv.COLOR_BGR2GRAY)
 	st=np.unique(mask)
 	contours=[]
