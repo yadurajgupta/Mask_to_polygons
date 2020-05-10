@@ -18,7 +18,7 @@ def visualize_mask(mask):
 	cv.waitKey()
 	cv.destroyAllWindows()
 
-def give_contours(img,mask,min_area=100):
+def give_contours(mask,min_area=100):
 	mask=cv.cvtColor(mask,cv.COLOR_BGR2GRAY)
 	st=np.unique(mask)
 	contours=[]
