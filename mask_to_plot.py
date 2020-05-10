@@ -5,6 +5,7 @@ def translate(i,mn,mx,newmn,newmx):
 	return newmn+((i-mn)/(mx-mn))*(newmx-newmn)
 
 def visualize_mask(mask):
+	mask=cv.cvtColor(mask,cv.COLOR_BGR2GRAY)
 	st=np.unique(mask)
 	sorted(st)
 	mp={}
@@ -31,7 +32,9 @@ def give_contours(mask,min_area=100):
 			if cv.contourArea(c)>min_area:
 				contours.append(c)
 	return contours
-def contours_overlay(contours,img):
+def contours_overlay(contours,img,contour_color=(0,0,255),contour_thickness=2):
 	overlay_img=img.copy()
-	cv.drawContours(overlay_img,contours,-1,(0,0,255),2)
+	cv.drawContours(overlay_img,contours,-1,contour_color,contour_thickness)
 	return overlay_img
+
+
